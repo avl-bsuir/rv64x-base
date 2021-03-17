@@ -8,8 +8,8 @@
 <h4 align="center">RV64X aims at creating and offering open-source GPUs with a RISC-V-derived architecture.</h4>
 
 <p align="center">
-  <a href=""></a>
-  <a href=""><img src="https://static.wixstatic.com/media/841f2a_704ce8b0a76e42349eebbe2ba74b285c~mv2.png"></a>
+  <a href="https://join.slack.com/t/rv64x/signup"></a>
+  <a href="https://join.slack.com/t/rv64x/signup"><img src="https://static.wixstatic.com/media/841f2a_704ce8b0a76e42349eebbe2ba74b285c~mv2.png"></a>
 </p>
 
 
