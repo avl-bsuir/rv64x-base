@@ -1,0 +1,4 @@
+Docker management scripts to be invoked as "source scriptName.sh":
+
+./build.sh   Rebuilds the rv64v-dev docker image
+./run.sh     Runs the image in a container
