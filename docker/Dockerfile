@@ -68,6 +68,13 @@ RUN runuser -l user -c "cd /home/user/buildroot ; make -j10"
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
   libncurses-dev
 
+# Replace buildroot's QEMU with the one we built ourselves
+RUN runuser -l user -c "sed -i 's/buildroot\/output\/host\/bin/qemu\/build/g' /home/user/buildroot/output/images/start-qemu.sh"
+
+# Install e2tools Ubuntu package for copying from docker image to QEMU image
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
+  e2tools
+
 # Export ports
 EXPOSE 22
 
