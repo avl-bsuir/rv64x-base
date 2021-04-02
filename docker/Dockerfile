@@ -15,7 +15,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
   vim \
   git \
   npm libnss3 libatk-adaptor cups libgdm-dev gnome \
-  python3 cmake
+  python3 cmake \
+  ninja-build libpixman-1-dev
+
 
 # Add "user" and "root" users
 RUN useradd -m user -s /bin/bash
@@ -46,6 +48,10 @@ RUN runuser -l user -c "echo 'export DISPLAY=:1' >> /home/user/.bash_profile"
 # Get RISC-V V spec sources
 RUN runuser -l user -c "cd /home/user ; git clone https://github.com/riscv/riscv-v-spec"
 RUN runuser -l user -c "cd /home/user/riscv-v-spec ; npm i"
+
+# Get QEMU sources
+RUN runuser -l user -c "cd /home/user ; git clone https://github.com/qemu/qemu"
+RUN runuser -l user -c "cd /home/user/qemu ; mkdir build && ./configure && make -j10"
 
 # Export ports
 EXPOSE 22
