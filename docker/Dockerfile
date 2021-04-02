@@ -51,7 +51,10 @@ RUN runuser -l user -c "cd /home/user/riscv-v-spec ; npm i"
 
 # Get QEMU sources
 RUN runuser -l user -c "cd /home/user ; git clone https://github.com/qemu/qemu"
-RUN runuser -l user -c "cd /home/user/qemu ; mkdir build && ./configure && make -j10"
+RUN runuser -l user -c "mkdir -p /home/user/qemu/build"
+RUN runuser -l user -c "cd /home/user/qemu/build ; ../configure"
+RUN runuser -l user -c "cd /home/user/qemu/build ; make -j10"
+
 
 # Export ports
 EXPOSE 22
