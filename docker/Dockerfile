@@ -55,6 +55,18 @@ RUN runuser -l user -c "mkdir -p /home/user/qemu/build"
 RUN runuser -l user -c "cd /home/user/qemu/build ; ../configure"
 RUN runuser -l user -c "cd /home/user/qemu/build ; make -j10"
 
+# Install Ubuntu packages needed by buildroot
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
+  rsync cpio
+
+# Get buildroot sources and build the image for QEMU
+RUN runuser -l user -c "cd /home/user ; git clone https://github.com/buildroot/buildroot.git"
+RUN runuser -l user -c "cd /home/user/buildroot ; make qemu_riscv64_virt_defconfig"
+RUN runuser -l user -c "cd /home/user/buildroot ; make -j10"
+
+# Install Ubuntu packages needed for running buildroot "make menuconfig"
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
+  libncurses-dev
 
 # Export ports
 EXPOSE 22
