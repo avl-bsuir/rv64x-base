@@ -75,8 +75,20 @@ RUN runuser -l user -c "sed -i 's/buildroot\/output\/host\/bin/qemu\/build/g' /h
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
   e2tools
 
+# Install xfce4 and tightvncserver
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --fix-missing\
+  xfce4 xfce4-goodies tightvncserver libxrandr-dev xfce4-terminal
+
+# Setup the .bash_profile
+RUN runuser -l user -c "mkdir /home/user/.vnc"
+RUN runuser -l user -c "echo \"#!/bin/bash\" >> /home/user/.vnc/xstartup"
+RUN runuser -l user -c "echo \"/usr/bin/xrdb /home/user/.Xresources\" >> /home/user/.vnc/xstartup"
+RUN runuser -l user -c "echo \"while : ; do xfce4-session ; sleep 1 ; done \" >> /home/user/.vnc/xstartup"
+RUN runuser -l user -c "chmod +x /home/user/.vnc/xstartup"
+
 # Export ports
 EXPOSE 22
+EXPOSE 5901
 
 ENTRYPOINT \
   service ssh start && \
