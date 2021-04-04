@@ -1,0 +1,13 @@
+diff --git a/target/riscv/cpu.c b/target/riscv/cpu.c
+index 7d6ed80f6b..842ae00e6c 100644
+--- a/target/riscv/cpu.c
++++ b/target/riscv/cpu.c
+@@ -544,7 +544,7 @@ static Property riscv_cpu_properties[] = {
+     DEFINE_PROP_BOOL("u", RISCVCPU, cfg.ext_u, true),
+     /* This is experimental so mark with 'x-' */
+     DEFINE_PROP_BOOL("x-h", RISCVCPU, cfg.ext_h, false),
+-    DEFINE_PROP_BOOL("x-v", RISCVCPU, cfg.ext_v, false),
++    DEFINE_PROP_BOOL("x-v", RISCVCPU, cfg.ext_v, true),
+     DEFINE_PROP_BOOL("Counters", RISCVCPU, cfg.ext_counters, true),
+     DEFINE_PROP_BOOL("Zifencei", RISCVCPU, cfg.ext_ifencei, true),
+     DEFINE_PROP_BOOL("Zicsr", RISCVCPU, cfg.ext_icsr, true),

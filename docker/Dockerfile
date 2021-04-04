@@ -51,6 +51,12 @@ RUN runuser -l user -c "cd /home/user/riscv-v-spec ; npm i"
 
 # Get QEMU sources
 RUN runuser -l user -c "cd /home/user ; git clone https://github.com/qemu/qemu"
+
+# Patch QEMU sources
+COPY qemu-patch /home/user/qemu/patch
+RUN runuser -l user -c "cd /home/user/qemu; git apply patch"
+
+# Build QEMU
 RUN runuser -l user -c "mkdir -p /home/user/qemu/build"
 RUN runuser -l user -c "cd /home/user/qemu/build ; ../configure"
 RUN runuser -l user -c "cd /home/user/qemu/build ; make -j10"
@@ -88,6 +94,7 @@ RUN runuser -l user -c "chmod +x /home/user/.vnc/xstartup"
 
 # Export ports
 EXPOSE 22
+EXPOSE 5900
 EXPOSE 5901
 
 ENTRYPOINT \
