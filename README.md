@@ -41,7 +41,7 @@ The graphics core will support the Vulkan API, but the group strives to make it 
 
 We use a docker image for easing the development environment setup for everyone wishing to contribute. There are four kinds of projects that are needed for doing RV64X development. Those projects are categorized in four levels, listed here in decreasing involvement by the RV64X organization:
 
-1) Projects of which the RV64X organization has full ownership. They go into the /home/user/rv64x-project docker image directory included as a regular directories. They get versioned in the GitHub project under the ´´´https://github.com/rv64x/rv64x-base´´´ URL.
+1) Projects of which the RV64X organization has full ownership. They go into the /home/user/rv64x-project docker image directory included as a regular directories. They get versioned in the GitHub project under the ```https://github.com/rv64x/rv64x-base``` URL.
 
 2) Projects to which RV64X contributes without owning their full code base, like QEMU and LLVM. Those projects go under /home/user/rv64x-base included as git submodules rather than as regular directories. For each of those projects the RV64X organization owns a “fork” repo that stays reasonably in sync with the original repo for easing the flow of changes going upstream and downstream.
 
@@ -61,11 +61,9 @@ You are now ready to have fun developing inside of the docker image by launching
 
 ```source docker/run.sh```
 
-Any changes on the ```/home/user/rv64x-base``` docker directory persist, but everything else is lost when you exit the docker. Actually, the ```rv64x-base``` docker directory maps to the host machine directory where you did the git clone.
+Any changes on the ```/home/user/rv64x-base``` docker directory persist, but everything else is lost when you exit the docker. Actually, the ```rv64x-base``` docker directory maps to the host machine directory where you did the git clone. This is your work directory and everything else is just “The Matrix”, so to speak.
 
-This directory (/home/user/rv64x-base) is your work directory and everything else is just “The Matrix”, so to speak.
-
-Inside of the docker you are “user, with “user” also being your password for ```sudo```. If you need to install a package (that will be lost when the session is closed) you can just do:
+Inside of the docker you are ```user```, with ```user``` also being your password for ```sudo```. If you need to install a package (that will be lost when the session is closed) you can just do:
 
 ```sudo apt-get install my_package```
 
