@@ -16,7 +16,7 @@
   <a href="#about">About the project</a> •
   <a href="#key-features">Key features</a> •
   <a href="#development-environment-setup">Development environment setup</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
   <a href="#contact">Contact</a>
 </p>
 
@@ -47,7 +47,7 @@ We use a docker image for easing the development environment setup for everyone 
 
 3) Projects on which RV64X has no involvement, but we still want to build from source because suitable binary packages are not available. Those projects get fetched into /home/user/ and built during the scripted docker build. In case of an update need the whole docker image is rebuilt.
 
-4) Projects in which RV64X has no involvement at all, neither we want to know how they are built because suitable binary packages are available. Those packages get installed with the likes of “apt-get”, “pip” and “npm” at docker image build time.
+4) Projects in which RV64X has no involvement at all, neither we want to know how they are built because suitable binary packages are available. Those packages get installed with the likes of ```apt-get```, ```pip``` and ```npm``` at docker image build time.
 
 The developer starts by recursively cloning the rv64x-base git repo for fetching projects from categories 1 and 2:
 
@@ -61,15 +61,11 @@ You are now ready to have fun developing inside of the docker image by launching
 
 ```source docker/run.sh```
 
-### Big warning
-
-Any changes on the /home/user/rv64x-base docker directory persist, but everything else is lost when you exit the docker. Actually, the /home/user/rv64x-base docker directory maps to the host machine directory where you did the git clone.
+Any changes on the ```/home/user/rv64x-base``` docker directory persist, but everything else is lost when you exit the docker. Actually, the ```rv64x-base``` docker directory maps to the host machine directory where you did the git clone.
 
 This directory (/home/user/rv64x-base) is your work directory and everything else is just “The Matrix”, so to speak.
 
-### Docker tips
-
-The user in docker is “user” and its password “user”. If you need to install a package (that will be lost when the session is closed) you can just do:
+Inside of the docker you are “user, with “user” also being your password for ```sudo```. If you need to install a package (that will be lost when the session is closed) you can just do:
 
 ```sudo apt-get install my_package```
 
