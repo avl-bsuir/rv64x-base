@@ -49,7 +49,7 @@ We use a docker image for easing the development environment setup for everyone 
 
 The developer starts by recursively cloning the rv64x-base git repo for fetching projects from categories 1 and 2:
 
-```git clone https://github.com/rv64x/rv64x-base --recursive```
+```git clone git@github.com:rv64x/rv64x-base.git --recursive```
 
 Then you build the docker image, which provides all the dependencies from categories 3 and 4:
 
