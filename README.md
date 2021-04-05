@@ -16,16 +16,14 @@
   <a href="#about">About the project</a> •
   <a href="#key-features">Key features</a> •
   <a href="#development-environment-setup">Development environment setup</a> •
-  <a href="#license">License</a> •
-  <a href="#contact">Contact</a>
+  <a href="#contact">Contact</a> •
+  <a href="#license">License</a>
 </p>
 
-
-<!-- ABOUT THE PROJECT -->
-## About the project
+# About the project
 We want to enable small companies to develop purpose-built processors and GPUs without paying a royalty. There are numerous free and commercial IP building blocks for RISC-V-based system-on-chips (SoCs), but the portfolio lacks a graphics option so we decided to develop and offer open-source GPUs based on the RISC-V architecture.  
 
-#### Key Features
+# Key Features
 RV64X-designed GPUs use a basic RV32I or RV64I core that supports new instructions built on the base vector instruction set. Initially, it will use an RV32I core, and later on, an RV64I core will replace it. The basic RISC-V core will support:
 
 1. New graphics and machine learning specific data types, including scalars and matrices;
@@ -37,7 +35,7 @@ RV64X-designed GPUs use a basic RV32I or RV64I core that supports new instructio
 
 The graphics core will support the Vulkan API, but the group strives to make it DirectX (shader model 5) and OpenGL/ES-compliant. :smile:  
 
-## Development environment setup
+# Development environment setup
 
 We use a docker image for easing the development environment setup for everyone wishing to contribute. There are four kinds of projects that are needed for doing RV64X development. Those projects are categorized in four levels, listed here in decreasing involvement by the RV64X organization:
 
@@ -73,6 +71,10 @@ Also you can open additional shell sessions through ssh on port 2222 as:
 
 Finally, you can start a vncserver inside of the docker and connect from the host machine port 5901. Through this vnc connection method you can use any GUI application that is required inside of the docker environment.
 
-## Contact
+# Contact
 
 Contact [Atif Zafar](https://github.com/atifzafar15) for more details.
+
+# License
+
+RV64X is BSD-style licensed, as found in the [LICENSE](LICENSE) file.
