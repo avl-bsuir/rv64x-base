@@ -30,7 +30,7 @@ RV64X-designed GPUs use a basic RV32I or RV64I core that supports new instructio
 2. Vector/math instructions; 
 3. Pixel/texture instructions; 
 4. Frame buffer instructions; 
-5. A special register set (featuring configurable 136-bit vector registers);
+5. Vector registers fully compatible with the RISC-V vector extension;
 5. Some graphics-specific instructions; 
 
 The graphics core will support the Vulkan API, but the group strives to make it DirectX (shader model 5) and OpenGL/ES-compliant. :smile:  
