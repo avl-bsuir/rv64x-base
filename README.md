@@ -69,7 +69,7 @@ Also you can open additional shell sessions through ssh on port 2222 as:
 
 ```ssh user@localhost -p 2222```
 
-Finally, you can start a vncserver inside of the docker and connect from the host machine port 5901. Through this vnc connection method you can use any GUI application that is required inside of the docker environment.
+Finally, you can start a vncserver inside of the docker and connect through the host machine TCP port 5901. Through this vnc connection method you can use any GUI application that is required inside of the docker environment.
 
 # Contact
 
